@@ -1,0 +1,498 @@
+html{overflow-x:auto;overflow-y:auto}
+.fontbg {color: #000066;}
+
+.printTitleFont{font-family: "宋体";font-size: 14px;}
+
+.printBigTitleFont{font-family: "宋体";font-size: 17px;}
+
+.printFont {font-family: "宋体_GB2312";font-size: 14px;}
+
+.printAttFont {font-family: "宋体_GB2312";font-size: 16px;}
+
+.writeLine{border:1;color:#000000;size:1}
+
+td {
+	font-size: 12px; line-height: 140%
+}
+tr {
+	font-size: 12px; line-height: 140%
+}
+body {
+	font-size: 12px; line-height: 140%;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	width:98%;
+}
+TEXTAREA {
+	FONT-SIZE: 9pt; FONT-FAMILY: '宋体',
+}
+SELECT {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: '宋体', 'Helvetica';
+	height: 18px;
+
+}
+.head-bg {
+	background-color: #068476;
+}
+.line {
+	background-color: #023C36;
+	height: 1px;
+}
+.left-bg {
+	background-color: #DEDBDB;
+
+}
+A {
+	COLOR: #035D53; 
+	TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #035D53; 
+	TEXT-DECORATION: underline
+}.head-font {
+	font-size: 12px;
+	color: #FFFFFF;
+}
+.head-navigate {
+	font-size: 12px;
+	color: #FFFFFF;
+	text-decoration: none;
+	font-weight: bold;
+
+}
+.head-navigate:hover {
+	font-size: 12px;
+	color: #FFFFFF;
+	text-decoration: underline;
+	font-weight: bold;
+
+}
+.head-menu {
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	
+}
+.head-menu:hover {
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: underline;
+	
+}
+.row-bg {
+	background-color: #C3FDF7;
+	font-weight: normal;
+
+}
+.row-bg1 {
+	background-color: #EFEFEF;
+	font-weight: normal;
+
+}
+.row-bg2 {
+	background-color: #A9A7A7;
+	font-weight: normal;
+
+}
+
+.red {
+	font-size: 12px;
+	color: #FF0000;
+
+}
+.row-head {
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #078F80;
+}
+.title {
+	font-size: 12px;
+	font-weight: bold;
+	color: #067569;
+}
+.row-bg2 {
+	background-color: #FFFFFF;
+}
+.aTabletitle2 {
+	PADDING-LEFT: 5px;
+	PADDING-top: 0px;
+	PADDING-bottom: 0px;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 9pt;
+	COLOR: #000000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: '宋体';
+	BACKGROUND-COLOR: #CDFCF8;
+	height: 20px;
+
+}
+.aTabletitle3 {
+	PADDING-LEFT: 10px;
+	PADDING-RIGHT: 5px;
+	PADDING-top: 0px;
+	PADDING-bottom: 0px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 9pt;
+	COLOR: #000000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: "宋体";
+	height: 20px;
+
+}
+
+.aTabletitle31 {
+	PADDING-LEFT: 10px;
+	PADDING-RIGHT: 5px;
+	PADDING-top: 0px;
+	PADDING-bottom: 0px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 9pt;
+	COLOR: #000000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: "宋体";
+	height: 20px;
+	width:145px
+
+}
+
+.aTabletitle311 {
+	PADDING-LEFT: 10px;
+	PADDING-RIGHT: 5px;
+	PADDING-top: 0px;
+	PADDING-bottom: 0px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 9pt;
+	COLOR: #000000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: "宋体";
+	height: 20px;
+
+}
+
+.aTabletitle3111 {
+	width: 168px;
+
+}
+
+.aTabletitle3payType {
+		width: 162px;
+	}
+
+.aTabletitle411 {
+	PADDING-LEFT: 5px;
+	PADDING-top: 0px;
+	PADDING-bottom: 0px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 10pt;
+	COLOR: #000000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: "宋体";
+	BACKGROUND-COLOR: #efefef;
+	height: 20px;
+
+}
+
+.aTabletitleInputText{
+	PADDING-LEFT: 10px;
+	PADDING-RIGHT: 5px;
+	PADDING-top: 0px;
+	PADDING-bottom: 0px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 9pt;
+	COLOR: #000000;
+	LINE-HEIGHT: 16px;
+	FONT-FAMILY: "宋体";
+	height: 16px;
+
+}
+.aTabletitle4 {
+	PADDING-LEFT: 5px;
+	PADDING-top: 0px;
+	PADDING-bottom: 0px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 9pt;
+	COLOR: #000000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: "宋体";
+	BACKGROUND-COLOR: #efefef;
+	height: 20px;
+
+}
+
+.aTabletitletextarea {
+	PADDING-LEFT: 5px;
+	PADDING-top: 0px;
+	PADDING-bottom: 0px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 9pt;
+	COLOR: #000000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: "宋体";
+	BACKGROUND-COLOR: #efefef;
+	height: 35px;
+	
+}
+.aTabletitle41 {
+	PADDING-LEFT: 5px;
+	PADDING-top: 0px;
+	PADDING-bottom: 0px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 9pt;
+	COLOR: #000000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: "宋体";
+	BACKGROUND-COLOR: #efefef;
+	height: 20px;
+	width: 130px
+}
+
+.aTabletitle4case {
+	
+	PADDING-top: 0px;
+	PADDING-bottom: 0px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 9pt;
+	COLOR: #000000;
+	line-height:20px;
+	FONT-FAMILY: "宋体";
+	BACKGROUND-COLOR: #efefef;
+	height: 15px;
+
+}
+
+.aTabletitle4case1 {
+	PADDING-LEFT: 5px;
+	PADDING-top: 0px;
+	PADDING-bottom: 0px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 9pt;
+	COLOR: #000000;
+	line-height:15px;
+	FONT-FAMILY: "宋体";
+	BACKGROUND-COLOR: #efefef;
+	height: 15px;
+	width: 40px;
+}
+.aTabletitle5 {
+	PADDING-LEFT: 5px;
+	PADDING-top: 0px;
+	PADDING-bottom: 0px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 9pt;
+	COLOR: #000000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: "宋体";
+	BACKGROUND-COLOR: #FFFFFF;
+	height: 20px;
+
+}
+.aTabletitle6 {
+	PADDING-LEFT: 5px;
+	PADDING-top: 0px;
+	PADDING-bottom: 0px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 9pt;
+	COLOR: #000000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: "宋体";
+	BACKGROUND-COLOR: #B2DAFC;
+	height: 20px;
+
+}
+.aTabletitle7 {
+	PADDING-LEFT: 0px;
+	PADDING-top: 0px;
+	PADDING-bottom: 0px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 9pt;
+	COLOR: #000000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: '宋体';
+	BACKGROUND-COLOR: #B2DAFC;
+	height: 20px;
+
+}
+.aTabletitle17 {
+	PADDING-LEFT: 0px;
+	PADDING-top: 0px;
+	PADDING-bottom: 0px;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 9pt;
+	COLOR: #000000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: '宋体';
+	BACKGROUND-COLOR: #B2DAFC;
+	height: 20px;
+
+}
+.aTabletitle8 {
+	PADDING-LEFT: 10px;
+	PADDING-top: 0px;
+	PADDING-bottom: 0px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 9pt;
+	COLOR: #000000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: '宋体';
+	BACKGROUND-COLOR: #cccccc;
+	height: 20px;
+
+}
+
+.aTabletitle9 {
+	PADDING-LEFT: 0px;
+	PADDING-top: 0px;
+	PADDING-bottom: 0px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 9pt;
+	COLOR: #000000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: '宋体';
+	BACKGROUND-COLOR: #cccccc;
+	height: 20px;
+
+}
+
+.aTabletitle10 {
+	
+	height: 12px;
+
+}
+
+.aTabletitle11 {
+	PADDING-LEFT: 0px;
+	PADDING-top: 0px;
+	PADDING-bottom: 0px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 9pt;
+	COLOR: #000000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: '宋体';
+	BACKGROUND-COLOR: #CDFCF8;
+	height: 20px;
+}
+.button {  border: none; height: 20px}
+.link01 {  font-size: 9pt; color: #666666; text-decoration: none}
+.link01:hover {  font-size: 9pt; color: #666666; text-decoration: underline}
+input {  font-size: 9pt; height: 18px}
+
+thead tr {
+  background-color: #B2DAFC;
+}
+th {
+    FONT-SIZE: 9pt;
+}
+th.sorted {
+    background-color: blue;
+}
+th a, th a:visited {
+  color: black;
+}
+th a:hover {
+  text-decoration: underline;
+  color: black;
+}
+th.sorted a, th.sortable a {
+	background-position: right;
+	display: block;
+	width: 100%;
+}
+tr.odd {
+  background-color: #fff
+}
+
+/* test styles */
+table.its thead tr {
+  background-color: #69c;
+}
+table.its tr.even {
+  background-color: #def;
+}
+
+table.mars thead tr {
+  background-color: #9c9;
+}
+table.mars tr.even {
+  background-color: #ccb;
+}
+table.mars tr.odd {
+  background-color: #eec;
+}
+
+
+table.simple thead tr {
+  background-color: #eee;
+}
+table.simple tr.even {
+  background-color: #fff;
+}
+table.simple {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+}
+table.simple td,table.simple th{
+	border: 1px solid #ccc;
+}
+table.particular {
+	border: 1px solid #bbb;
+	border-collapse: collapse;
+}
+
+table.particular td,table.particular th{
+	border: 1px solid #bbb;
+}
+table.nocol tbody td,table.nocol tbody th{
+	border-left: none;
+	border-right: none;
+}
+table.report td, table.report th{
+	font:         menu;
+}
+table.report th{
+	background:   buttonface;
+	border-width: 1px;
+	border-style: solid;
+	border-color: threedhighlight threedshadow threedshadow threedhighlight;
+	cursor:       hand;
+}
+table.report idcol {
+	background: buttonface;
+}
+
+table.report tr.even{
+	background-color: #399;
+}
+table.report tbody {
+	height: 100px;
+	overflow: auto;
+}
+
+table.report {
+	height: 120px;
+	overflow: auto;
+}
+
+table.report tbody tr{
+	height: 10px;
+}
+table.mark td.tableCellError {
+	background-color: #d00;
+	color: #fff;
+}
+
+table.sublist {
+	margin: 0 0 0 0;
+	width: 100%;
+}
+table.sublist td, table.sublist th {
+	width: 50%;
+}
+table.simple td.textRed {color: #b11;}
+
+.tableInput{
+	BACKGROUND-COLOR: #efefef;
+}

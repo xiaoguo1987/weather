@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.StateFileMapper">
+
+	<!-- 插入文件到数据库 主键id自增长-->
+	<insert id="addStateFile" parameterType="com.domain.StateFile" keyProperty="id" useGeneratedKeys="true">
+			insert into statefile(path,state)
+			values(#{path},#{state})
+	</insert>
+	
+	<!-- 按照state状态查询没有写入库的文件 -->
+	<select id="getStateFileByState" parameterType="java.lang.String" resultType="com.domain.StateFile">
+			select * from statefile where state = #{state}
+	</select>
+	
+	<!-- 修改state以及时间 -->
+	<update id="updateStateFile" parameterType="com.domain.StateFile">
+         update statefile 
+         <set>
+			<if test="state != null">
+				state = #{state,jdbcType=VARCHAR},
+			</if>			
+			<if test="state == 1 ">
+				startt = CURRENT_TIMESTAMP,
+			</if>
+			<if test="state == 2 ">
+				endt = CURRENT_TIMESTAMP,
+			</if>
+				lastupdatet = CURRENT_TIMESTAMP
+		</set>
+		where path = #{path} 
+	</update>	
+ </mapper>

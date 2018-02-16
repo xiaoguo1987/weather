@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/aop
+	 http://www.springframework.org/schema/aop/spring-aop-4.0.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/util 
+	http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+	
+
+
+	<!-- 启用spring mvc 注解 -->
+	<context:annotation-config />
+
+	<!-- 引入属性文件 -->
+	<bean name="propertyConfiger"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath:META-INF/property/init.properties</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 数据库连接池 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="url"
+			value="jdbc:mysql://47.92.3.90/test?zeroDateTimeBehavior=convertToNull" />
+		<property name="username" value="root" />
+		<property name="password" value="yanlili521" />
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="maxActive" value="100" />
+		<property name="minIdle" value="5" />
+	</bean>
+	<!-- sqlsessionfactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 数据库连接池 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 自动扫描mapping.xml文件 -->
+		<property name="mapperLocations" value="classpath:com/mapper/*.xml"></property>
+
+	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.dao" /> <!-- 注入mapper -->
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory">
+		</property>
+	</bean>
+
+
+
+	<!-- 自动扫描(自动注入所有的service和action) -->
+	<context:component-scan base-package="com" />
+	<!-- <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" 
+		/> </context:component-scan> -->
+
+
+	<!-- 应用加载成功后需要执行的内容 -->
+	<!-- <import resource="classpath:/META-INF/springmvc/springmvc.xml" /> -->
+
+	<!-- ========================================分隔线========================================= -->
+	<!-- 配置Spring的事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 注解方式配置事物 -->
+	<!-- <tx:annotation-driven transaction-manager="transactionManager" /> -->
+
+	<!-- 拦截器方式配置事物 -->
+	<tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="append*" propagation="REQUIRED" />
+			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="modify*" propagation="REQUIRED" />
+			<tx:method name="edit*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="remove*" propagation="REQUIRED" />
+			<tx:method name="repair" propagation="REQUIRED" />
+			<tx:method name="delAndRepair" propagation="REQUIRED" />
+
+			<tx:method name="get*" propagation="SUPPORTS" />
+			<tx:method name="find*" propagation="SUPPORTS" />
+			<tx:method name="load*" propagation="SUPPORTS" />
+			<tx:method name="search*" propagation="SUPPORTS" />
+			<tx:method name="datagrid*" propagation="SUPPORTS" />
+
+			<tx:method name="*" propagation="SUPPORTS" />
+		</tx:attributes>
+	</tx:advice>
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="transactionPointcut" expression="execution(* com.service..*impl.*(..))" />
+		<aop:advisor pointcut-ref="transactionPointcut"
+			advice-ref="transactionAdvice" />
+	</aop:config>
+
+	<!-- 向weather表插入数据 -->
+	<!-- 加载类 -->
+	<bean id="weathertest" class="com.controller.WeatherController"></bean>
+
+	<bean id="job1"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="weathertest"></property>
+		<property name="targetMethod" value="addWeather" /><!-- 类中的方法 -->
+		<property name="concurrent" value="false" /><!-- 作业不并发调度 -->
+	</bean>
+
+	<!-- 触发器 -->
+	<bean id="cronTrigger1"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+
+		<property name="jobDetail" ref="job1" />
+		<!-- 每天0点20运行一次从接口查询北京当天天气并写入数据库 -->
+		<property name="cronExpression" value="0 20 0 * * ?" />
+	</bean>
+
+	<!-- 查weather并发短信 -->
+	<bean id="job2"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="weathertest"></property>
+		<property name="targetMethod" value="getWeatherByNameAndDate" /><!-- 
+			类中的方法 -->
+		<property name="concurrent" value="false" /><!-- 作业不并发调度 -->
+	</bean>
+
+	<!-- 触发器 -->
+	<bean id="cronTrigger2"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+
+		<property name="jobDetail" ref="job2" />
+		<!-- 每天7点发短信  有延迟 -->
+		<property name="cronExpression" value="0 0 7 * * ?" />
+	</bean>
+
+	<!-- 根据state状态将excal或者txt文件数据导入weather表中 -->
+	<!-- 加载类 -->
+	<bean id="timefile" class="com.controller.StateFileController"></bean>
+
+	<bean id="job3"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="timefile"></property>
+		<property name="targetMethod" value="stateFiletime" /><!-- 类中的方法 -->
+		<property name="concurrent" value="false" /><!-- 作业不并发调度 -->
+	</bean>
+
+	<!-- 触发器 -->
+	<bean id="cronTrigger3"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+
+		<property name="jobDetail" ref="job3" />
+		<!-- 每天早上6点运行一次 将文件中数据导入数据库并修改状态-->
+		<property name="cronExpression" value="0 0 6 * * ?" />
+	</bean>
+
+	<!-- 配置工厂 -->
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="cronTrigger1" />
+				<ref bean="cronTrigger2" />
+				<ref bean="cronTrigger3" />
+			</list>
+		</property>
+		
+	</bean>
+
+
+</beans>

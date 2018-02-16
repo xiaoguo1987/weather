@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.WeatherMapper">
+	<!-- 通过城市名查询数据 -->
+	<select id="getWeatherByCityName" parameterType="java.lang.String" resultType="com.domain.Weather">
+			select id,cityname,weather,htem,ltem,feel from weather where cityname=#{cityname}
+		   
+	</select>
+	
+	<!-- 通过城市名和日期查询数据 -->
+	<select id="getWeatherByNameAndDate" parameterType="java.lang.String" resultType="com.domain.Weather">
+			select * from weather where cityname = #{0} and  date = #{1} 
+		
+	</select>
+		
+		
+	<!-- 插入城市天气数据 主键id字增长-->
+	<insert id="addWeather" parameterType="com.domain.Weather" keyProperty="id" useGeneratedKeys="true"> 
+			insert into weather(cityname,wtime,weather,htem,ltem,feel,taskid,date) 
+			values(#{cityname},#{wtime},#{weather},#{htem},#{ltem},#{feel},#{taskid},#{date})
+	</insert>
+</mapper>
